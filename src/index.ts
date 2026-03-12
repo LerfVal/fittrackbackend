@@ -24,10 +24,13 @@ const app = express();
 // By default browsers block requests from a different origin (e.g. localhost:3000 → localhost:5000).
 // This tells Express to allow requests from our Next.js frontend.
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "http://localhost:3000", // Only allow our frontend
-  credentials: true, // Allow cookies to be sent with requests (needed for httpOnly cookies later)
+  origin: [
+    "http://localhost:3000",
+    process.env.FRONTEND_URL || "", // Your Vercel URL from Railway env vars
+  ],
+  credentials: true,
 }));
-
+const FRONTEND_URL = "https://fittrack-reb1azr9o-lerfvals-projects.vercel.app/"
 // JSON body parser
 // Without this, req.body would be undefined.
 // This middleware parses incoming JSON payloads and makes them available on req.body.
