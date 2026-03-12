@@ -30,7 +30,7 @@ app.use(cors({
   ],
   credentials: true,
 }));
-const FRONTEND_URL = "https://fittrack-reb1azr9o-lerfvals-projects.vercel.app/"
+
 // JSON body parser
 // Without this, req.body would be undefined.
 // This middleware parses incoming JSON payloads and makes them available on req.body.
